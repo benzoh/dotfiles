@@ -1,0 +1,6 @@
+Metrics/BlockLength:
+  Exclude:
+    # - '**/*.rb'
+    # - '**/app/models/concerns/*.rb'
+
+
