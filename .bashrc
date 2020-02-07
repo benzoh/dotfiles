@@ -7,3 +7,7 @@ function ide() {
   tmux split-window -h -p 66
   tmux split-window -h -p 50
 }
+
+function editHosts() {
+  sudo code /private/etc/hosts
+}

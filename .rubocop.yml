@@ -3,4 +3,11 @@ Metrics/BlockLength:
     # - '**/*.rb'
     # - '**/app/models/concerns/*.rb'
 
+Rails:
+  Enabled: true
+
+Style/AsciiComments:
+#   Description: 'Use only ascii symbols in comments.'
+#   StyleGuide: '#english-comments'
+  Enabled: false
 
