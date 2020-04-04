@@ -9,5 +9,11 @@ function ide() {
 }
 
 function editHosts() {
-  sudo code /private/etc/hosts
+  sudo nano /private/etc/hosts
+}
+
+function do-start() {
+  docker stop $(docker ps -q)
+  docker-compose start
+  docker-compose ps
 }
