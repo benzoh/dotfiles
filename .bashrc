@@ -17,3 +17,7 @@ function do-start() {
   docker-compose start
   docker-compose ps
 }
+
+function do-stop() {
+  docker-compose stop
+}
