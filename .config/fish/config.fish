@@ -9,3 +9,5 @@ set -x PATH $PATH $ANDROID_HOME/tools/bin
 set -x PATH $PATH $ANDROID_HOME/platform-tools
 
 alias g='git'
+alias d='docker'
+alias dc='docker-compose'
