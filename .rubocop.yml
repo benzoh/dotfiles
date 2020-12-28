@@ -1,3 +1,5 @@
+require: rubocop-rails
+
 Metrics/BlockLength:
   Exclude:
     # - '**/*.rb'
@@ -10,4 +12,3 @@ Style/AsciiComments:
 #   Description: 'Use only ascii symbols in comments.'
 #   StyleGuide: '#english-comments'
   Enabled: false
-
