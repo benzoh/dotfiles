@@ -2,8 +2,12 @@ require: rubocop-rails
 
 Metrics/BlockLength:
   Exclude:
+    - '**/spec/**/*.rb'
     # - '**/*.rb'
     # - '**/app/models/concerns/*.rb'
+
+Metrics/AbcSize:
+  Max: 20
 
 Rails:
   Enabled: true
