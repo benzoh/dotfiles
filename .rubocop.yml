@@ -2,6 +2,8 @@ require: rubocop-rails
 
 Metrics/BlockLength:
   Exclude:
+    - 'spec'
+    - '*_spec.rb'
     - '**/spec/**/*.rb'
     # - '**/*.rb'
     # - '**/app/models/concerns/*.rb'

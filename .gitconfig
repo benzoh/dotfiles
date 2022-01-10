@@ -24,3 +24,7 @@
 	co = checkout
 [commit]
 	template = /Users/Benzoh/.stCommitMsg
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
