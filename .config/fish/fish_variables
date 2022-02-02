@@ -2,7 +2,8 @@
 # VERSION: 3.0
 SETUVAR __fish_initialized:3100
 SETUVAR _fisher_oh_2D_my_2D_fish_2F_theme_2D_batman_files:/Users/hippohack/\x2econfig/fish/functions/__batman_color_dim\x2efish\x1e/Users/hippohack/\x2econfig/fish/functions/__batman_color_fst\x2efish\x1e/Users/hippohack/\x2econfig/fish/functions/__batman_color_off\x2efish\x1e/Users/hippohack/\x2econfig/fish/functions/__batman_color_snd\x2efish\x1e/Users/hippohack/\x2econfig/fish/functions/__batman_color_trd\x2efish\x1e/Users/hippohack/\x2econfig/fish/functions/fish_greeting\x2efish\x1e/Users/hippohack/\x2econfig/fish/functions/fish_prompt\x2efish\x1e/Users/hippohack/\x2econfig/fish/functions/fish_right_prompt\x2efish\x1e/Users/hippohack/\x2econfig/fish/functions/fish_title\x2efish
-SETUVAR _fisher_plugins:oh\x2dmy\x2dfish/theme\x2dbatman\x1emcansh/vercel\x2dfish\x2dtheme
+SETUVAR _fisher_oh_2D_my_2D_fish_2F_theme_2D_default_files:/Users/hippohack/\x2econfig/fish/functions/fish_prompt\x2efish\x1e/Users/hippohack/\x2econfig/fish/functions/fish_right_prompt\x2efish
+SETUVAR _fisher_plugins:oh\x2dmy\x2dfish/theme\x2dbatman\x1emcansh/vercel\x2dfish\x2dtheme\x1eoh\x2dmy\x2dfish/theme\x2ddefault
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:005fd7

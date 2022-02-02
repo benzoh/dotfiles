@@ -9,5 +9,9 @@ alias g='git'
 alias d='docker'
 alias dc='docker-compose'
 
+abbr -a -g g git
+abbr -a -g limastart limactl start docker
+abbr -a -g limastop limactl stop docker
+
 status --is-interactive; and source (jump shell fish | psub)
 
