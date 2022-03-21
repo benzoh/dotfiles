@@ -3,3 +3,7 @@ function do-start
   docker-compose start
   docker-compose ps
 end
+
+function docker-start
+  limactl start docker
+end
