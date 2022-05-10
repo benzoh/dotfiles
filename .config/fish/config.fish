@@ -5,6 +5,8 @@ set -gx PATH $NODENV_ROOT/shims $PATH
 set -gx DOCKER_HOST unix:///Users/hippohack/.lima/docker/sock/docker.sock
 set -gx LIMA_INSTANCE docker
 
+set -gx DOCKER_CONTENT_TRUST 1
+
 alias g='git'
 alias d='docker'
 alias dc='docker-compose'
