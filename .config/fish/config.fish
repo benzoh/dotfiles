@@ -4,8 +4,8 @@ set -gx PATH $NODENV_ROOT/shims $PATH
 
 # set -gx DOCKER_HOST tcp://127.0.0.1:2375
 # set -gx DOCKER_HOST unix:///Users/hippohack/.lima/docker_x86_64/sock/docker.sock
-set -x DOCKER_HOST unix:///Users/hippohack/.lima/docker/sock/docker.sock
-set -x LIMA_INSTANCE docker
+# set -x DOCKER_HOST unix:///Users/hippohack/.lima/docker/sock/docker.sock
+# set -x LIMA_INSTANCE docker
 
 set -gx DOCKER_CONTENT_TRUST 1
 
