@@ -2,7 +2,7 @@
 	excludesfile = /Users/benzoh/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -20,8 +20,10 @@
 	lgn = log --name-status
 	lgone = log --oneline
 	ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+	psforce = "!git push -f origin $(git rev-parse --abbrev-ref HEAD)"
 	pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
 	co = checkout
+	add-commit = !git add -A && git commit
 [commit]
 	template = /Users/Benzoh/.stCommitMsg
 [init]
