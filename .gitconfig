@@ -23,7 +23,10 @@
 	psforce = "!git push -f origin $(git rev-parse --abbrev-ref HEAD)"
 	pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
 	co = checkout
-	add-commit = !git add -A && git commit
+	add-commit = "!git add -A && git commit"
+	r = "!git reset --soft HEAD^"
+	get-main-branch = "!git remote show origin | sed -n '/HEAD branch/s/.*: //p'"
+	delete-and-get = "!CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git checkout $(git get-main-branch) && git branch -D $CURRENT_BRANCH && git fetch && git checkout $CURRENT_BRANCH"
 [commit]
 	template = /Users/Benzoh/.stCommitMsg
 [init]
