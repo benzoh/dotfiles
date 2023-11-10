@@ -7,7 +7,7 @@
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [user]
-	name = Benzoh
+	name = benzoh
 	email = benzoh.wada@gmail.com
 [filter "lfs"]
 	clean = git lfs clean %f
@@ -23,8 +23,10 @@
 	psforce = "!git push -f origin $(git rev-parse --abbrev-ref HEAD)"
 	pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
 	co = checkout
-	add-commit = "!git add -A && git commit"
+	# add-commit = "!git add -A && git commit"
+	add-com = "!git add -A && EDITOR='code --wait' git commit"
 	r = "!git reset --soft HEAD^"
+    rollback = reset --hard HEAD
 	get-main-branch = "!git remote show origin | sed -n '/HEAD branch/s/.*: //p'"
 	delete-and-get = "!CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git checkout $(git get-main-branch) && git branch -D $CURRENT_BRANCH && git fetch && git checkout $CURRENT_BRANCH"
 [commit]
