@@ -1,6 +1,7 @@
 -- @see https://zenn.dev/mozumasu/articles/mozumasu-wezterm-customization
 
 local wezterm = require 'wezterm'
+
 local config = wezterm.config_builder()
 
 config.font = wezterm.font("Source Han Code JP")
@@ -8,7 +9,7 @@ config.font_size = 10.5
 
 config.automatically_reload_config = true
 config.use_ime = true
-config.window_background_opacity = 0.5
+config.window_background_opacity = 0.8
 config.macos_window_background_blur = 10
 -- config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
@@ -62,5 +63,19 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
     { Text = SOLID_RIGHT_ARROW },
   }
 end)
+
+-- @see https://zenn.dev/glaucus03/articles/070589323cb450
+
+-- システムベル音を有効化（Claude Codeのタスク完了通知用）
+config.audible_bell = "SystemBeep"
+
+-- Shift+Enterで改行を送信
+config.keys = {
+  {
+    key = 'Enter',
+    mods = 'SHIFT',
+    action = wezterm.action.SendString('\n')
+  },
+}
 
 return config
