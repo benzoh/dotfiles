@@ -9,7 +9,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="gitconfig gitignore_global config/fish config/karabiner config/wezterm"    # list of files/folders to symlink in homedir
+files="gitconfig gitignore_global stCommitMsg config/fish config/karabiner config/wezterm"    # list of files/folders to symlink in homedir
 
 # Create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
