@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /Users/benzoh/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
@@ -30,7 +30,7 @@
 	get-main-branch = "!git remote show origin | sed -n '/HEAD branch/s/.*: //p'"
 	delete-and-get = "!CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git checkout $(git get-main-branch) && git branch -D $CURRENT_BRANCH && git fetch && git checkout $CURRENT_BRANCH"
 [commit]
-	template = /Users/Benzoh/.stCommitMsg
+	template = ~/.stCommitMsg
 [init]
 	defaultBranch = main
 	templatedir = ~/.git-templates/git-secrets
