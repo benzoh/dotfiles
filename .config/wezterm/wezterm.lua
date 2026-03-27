@@ -2,6 +2,7 @@
 
 local wezterm = require 'wezterm'
 local background = require 'background'
+local tab = require 'tab'
 
 local config = wezterm.config_builder()
 
@@ -17,8 +18,6 @@ config.macos_window_background_blur = 10
 -- ウィンドウの装飾をリサイズバーのみに設定（ヘッダー消す）
 -- config.window_decorations = "RESIZE"
 config.window_decorations = "TITLE | RESIZE | MACOS_USE_BACKGROUND_COLOR_AS_TITLEBAR_COLOR"
-config.hide_tab_bar_if_only_one_tab = true
-
 config.window_frame = {
   inactive_titlebar_bg = "none",
   active_titlebar_bg = "none",
@@ -26,15 +25,7 @@ config.window_frame = {
 config.window_background_gradient = {
   colors = { "#111111" },
 }
-config.show_new_tab_button_in_tab_bar = false
--- nightlyのみ使用可能
--- タブの閉じるボタンを非表示
-config.show_close_tab_button_in_tabs = false
-config.colors = {
-  tab_bar = {
-    inactive_tab_edge = "none",
-  },
-}
+tab.apply_to_config(config)
 -- 文字色
 config.color_schemes = {
   ['Custom Scheme'] = {
@@ -48,35 +39,15 @@ config.color_scheme = 'Custom Scheme'
 config.initial_rows = 55
 config.initial_cols = 200
 
-local SOLID_LEFT_ARROW = wezterm.nerdfonts.ple_left_half_circle_thick
-local SOLID_RIGHT_ARROW = wezterm.nerdfonts.ple_right_half_circle_thick
+-- Claude Codeの通知を受け取る
 
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-  local background = "#424063"
-  local foreground = "#dbd2d2"
-  local edge_background = "none"
-  if tab.is_active then
-    background = "#293fed"
-    foreground = "#FFFFFF"
-  end
-  local edge_foreground = background
-  local title = "   " .. wezterm.truncate_right(tab.active_pane.title, max_width - 1) .. "   "
-  return {
-    { Background = { Color = edge_background } },
-    { Foreground = { Color = edge_foreground } },
-    { Text = SOLID_LEFT_ARROW },
-     { Background = { Color = background } },
-     { Foreground = { Color = foreground } },
-    { Text = title },
-    { Background = { Color = edge_background } },
-    { Foreground = { Color = edge_foreground } },
-    { Text = SOLID_RIGHT_ARROW },
-  }
+-- @see https://zenn.dev/choplin/articles/cb16c2da711de8#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95
+wezterm.on('bell', function(window, pane)
+  window:toast_notification('Claude Code', 'Task completed', nil, 4000)
 end)
 
 -- @see https://zenn.dev/glaucus03/articles/070589323cb450
-
--- システムベル音を有効化（Claude Codeのタスク完了通知用）
+-- システムベル音を有効化
 config.audible_bell = "SystemBeep"
 
 ----------------------------------------------------
@@ -86,14 +57,8 @@ config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
 
 config.disable_default_key_bindings = true
 
--- keybinds.luaのキーバインディングにShift+Enterを追加
-local keys = require("keybinds").keys
-table.insert(keys, {
-  key = 'Enter',
-  mods = 'SHIFT',
-  action = wezterm.action.SendString('\n')
-})
-config.keys = keys
-config.key_tables = require("keybinds").key_tables
+local keybinds = require("keybinds")
+config.keys = keybinds.keys
+config.key_tables = keybinds.key_tables
 
 return config

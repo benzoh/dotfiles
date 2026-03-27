@@ -109,13 +109,14 @@ return {
     -- { key = "p", mods = "SHIFT|CTRL", action = act.ActivateCommandPalette },
     -- 設定再読み込み
     { key = "r", mods = "SHIFT|CTRL", action = act.ReloadConfiguration },
+    -- Shift+Enter で改行送信
+    { key = 'Enter', mods = 'SHIFT', action = wezterm.action.SendString('\n') },
     -- キーテーブル用
     { key = "s", mods = "LEADER", action = act.ActivateKeyTable({ name = "resize_pane", one_shot = false }) },
-    -- Pane移動用のキーテーブルを呼び出す
     {
       key = "a",
       mods = "LEADER",
-      action = act.ActivateKeyTable({ name = "activate_pane", one_shot = false }),
+      action = act.ActivateKeyTable({ name = "activate_pane", timeout_milliseconds = 1000 }),
     },
   },
   -- キーテーブル
@@ -125,29 +126,24 @@ return {
     resize_pane = {
       { key = "h", action = act.AdjustPaneSize({ "Left", 1 }) },
       { key = "l", action = act.AdjustPaneSize({ "Right", 1 }) },
-      { key = "i", action = act.AdjustPaneSize({ "Up", 1 }) },
+      { key = "k", action = act.AdjustPaneSize({ "Up", 1 }) },
       { key = "j", action = act.AdjustPaneSize({ "Down", 1 }) },
 
       -- Cancel the mode by pressing escape
       { key = "Enter", action = "PopKeyTable" },
-      { key = "Escape", action = "PopKeyTable" },
-      { key = "q", action = "PopKeyTable" },
     },
     activate_pane = {
-    --   { key = "h", action = act.ActivatePaneDirection("Left") },
-    --   { key = "l", action = act.ActivatePaneDirection("Right") },
-    --   { key = "i", action = act.ActivatePaneDirection("Up") },
-    --   { key = "j", action = act.ActivatePaneDirection("Down") },
-      -- 順番に移動
-      { key = "n", action = act.ActivatePaneDirection("Next") },
-      { key = "p", action = act.ActivatePaneDirection("Prev") },
+      { key = "h", action = act.ActivatePaneDirection("Left") },
+      { key = "l", action = act.ActivatePaneDirection("Right") },
+      { key = "k", action = act.ActivatePaneDirection("Up") },
+      { key = "j", action = act.ActivatePaneDirection("Down") },
     },
     -- copyモード leader + [
     copy_mode = {
       -- 移動
       { key = "h", mods = "NONE", action = act.CopyMode("MoveLeft") },
       { key = "j", mods = "NONE", action = act.CopyMode("MoveDown") },
-      { key = "i", mods = "NONE", action = act.CopyMode("MoveUp") },
+      { key = "k", mods = "NONE", action = act.CopyMode("MoveUp") },
       { key = "l", mods = "NONE", action = act.CopyMode("MoveRight") },
       -- 最初と最後に移動
       { key = "^", mods = "NONE", action = act.CopyMode("MoveToStartOfLineContent") },

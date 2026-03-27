@@ -1,17 +1,17 @@
 -- 背景画像のパスを設定
-local background_image = "/Users/benzoh/.config/wezterm/wp1987761.jpg"
+local background_image = os.getenv("HOME") .. "/.config/wezterm/assets/background.jpg"
 
 return {
     {
         source = {
             Gradient = {
-                colors = { "#081d35", "#001522" }, -- グラデーションのカラーセット
+                colors = { "#320835", "#150022" }, -- グラデーションのカラーセット
                 orientation = {
                     Linear = { angle = -30.0 }, -- グラデーションの方向と角度
                 },
             },
         },
-        opacity = 0.65, -- 透明度
+        opacity = 0.8, -- 透明度
         -- opacity = 1.0, -- 透明度
         width = "100%", -- 幅
         height = "100%", -- 高さ
